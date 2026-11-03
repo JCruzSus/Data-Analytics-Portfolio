@@ -1,42 +1,46 @@
 # 03 — Employee Attrition Analysis & Prediction
 
-## Business scenario
+## Business question
+What patterns are associated with attrition in a simulated workforce, and how do baseline classification models perform on held-out records?
 
-An HR analytics team wants to understand employee attrition patterns and evaluate whether a classification model can identify records associated with elevated attrition risk.
+**Data disclosure:** this executed version uses 1,470 seeded synthetic employee records created by `src/generate_synthetic_data.py`. It is not IBM's HR sample dataset and contains no real employee information.
 
-## Dataset
+## Run results
+- Synthetic employee records: **1,470**
+- Synthetic attrition rate: **16.9%**
+- Overtime = Yes attrition rate: **34.2%**
+- Overtime = No attrition rate: **10.1%**
+- Best ROC-AUC on the stratified 25% held-out test split: **0.745 (Random Forest)**
 
-Use the IBM HR Analytics Employee Attrition & Performance sample dataset, commonly distributed as `WA_Fn-UseC_-HR-Employee-Attrition.csv`. It contains 1,470 employee records and a binary `Attrition` field in the commonly circulated version.
+## Model comparison
 
-Download the CSV from the Kaggle dataset page: https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset  
-Place the file at `data/WA_Fn-UseC_-HR-Employee-Attrition.csv`.
+| Model | ROC-AUC | Attrition precision | Attrition recall | Attrition F1 | Accuracy |
+|---|---:|---:|---:|---:|---:|
+| Random Forest | 0.745 | 0.464 | 0.210 | 0.289 | 0.826 |
+| Logistic Regression | 0.745 | 0.302 | 0.726 | 0.427 | 0.671 |
 
-This dataset is a public educational sample, not a representative sample of the current labor market or any specific employer.
+Logistic regression favors recall while random forest favors precision/accuracy at the default threshold. This demonstrates why accuracy alone is insufficient for imbalanced classification.
 
-## Questions
+## Methodology
+- Seeded synthetic dataset generation with a minority attrition class.
+- Stratified train/test split; preprocessing is fitted within a pipeline on training data only.
+- Median imputation and standardization for numeric features; mode imputation and one-hot encoding for categorical features.
+- Logistic regression and random forest compared on the same held-out test set.
+- ROC-AUC, precision, recall, F1, accuracy, confusion matrices, ROC curves, and held-out permutation importance.
 
-1. What is the overall attrition rate in the sample?
-2. How does attrition vary across tenure, overtime, role, and satisfaction measures?
-3. Which features are useful for prediction on held-out data?
-4. How do precision, recall, ROC-AUC, and confusion matrices compare across models?
-
-## Run
+## Run locally
 
 ```bash
 pip install -r ../../requirements.txt
 python src/analyze.py
 ```
 
-The script checks for the dataset, performs exploratory summaries, trains baseline logistic regression and random forest models, and writes evaluation outputs under `outputs/`.
+## Results
+- [Model comparison](outputs/model_comparison.csv)
+- [Class balance](outputs/class_balance.csv)
+- [Overtime breakdown](outputs/attrition_by_overtime.csv)
+- [Permutation importance](outputs/permutation_importance.csv)
+- [Run results](outputs/RESULTS.md)
 
-## Methodology
-
-- Separate target from predictors.
-- Split train/test data with stratification.
-- Preprocess numeric and categorical columns within a scikit-learn pipeline to avoid leakage.
-- Compare logistic regression and random forest on the same held-out split.
-- Report class-aware metrics because attrition is the minority class in this sample.
-
-## Responsible use
-
-This is an educational modeling exercise. Attrition labels may reflect organizational context, measurement choices, and historical inequities. Feature importance is associational, not causal. Do not use this model to screen, rank, discipline, or make employment decisions about individuals. Any real-world HR application would require legal review, fairness testing, transparency, consent, and human oversight.
+## Responsible use and limitations
+This is a modeling workflow demonstration, not an HR decision tool. The synthetic target is generated from selected features, so model performance and importance reflect programmed relationships, not evidence about real workplaces. Never use attrition predictions to screen, rank, discipline, or make employment decisions about individuals. Real applications require legal review, fairness testing, transparency, consent, and human oversight.
