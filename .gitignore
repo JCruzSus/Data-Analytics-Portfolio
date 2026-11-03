@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+.DS_Store
+projects/*/outputs/
+projects/*/data/*.db
+projects/02_retail_business_dashboard/data/*.csv
+projects/03_employee_attrition/data/*.csv
+projects/03_employee_attrition/outputs/*.joblib
