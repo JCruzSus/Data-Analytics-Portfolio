@@ -19,6 +19,14 @@ How can a device-repair operation monitor intake, completion, turnaround, issue 
 
 The repeat-repair flag is randomly generated for this demo, not a measured quality metric.
 
+## Visualizations
+
+![Monthly repair work orders](visualizations/monthly_work_orders.svg)
+
+![Work orders by issue](visualizations/orders_by_issue.svg)
+
+![Completion rate by device](visualizations/completion_by_device.svg)
+
 ## Technical implementation
 SQLite tables for customers, technicians, devices, work orders, and status history; primary/foreign keys, check constraints, indexes, analytical views, SQL joins/aggregations, Python data generation, KPI exports, and Matplotlib charts.
 
