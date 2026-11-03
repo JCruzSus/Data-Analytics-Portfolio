@@ -21,6 +21,18 @@ What patterns are associated with attrition in a simulated workforce, and how do
 
 Logistic regression favors recall while random forest favors precision/accuracy at the default threshold. This demonstrates why accuracy alone is insufficient for imbalanced classification.
 
+## Visualizations
+
+![Class balance](visualizations/class_balance.svg)
+
+![Attrition by overtime](visualizations/attrition_by_overtime.svg)
+
+![Attrition by department](visualizations/attrition_by_department.svg)
+
+![Model ROC-AUC](visualizations/model_roc_auc.svg)
+
+![Permutation importance](visualizations/permutation_importance.svg)
+
 ## Methodology
 - Seeded synthetic dataset generation with a minority attrition class.
 - Stratified train/test split; preprocessing is fitted within a pipeline on training data only.
