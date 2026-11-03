@@ -29,6 +29,8 @@ Logistic regression favors recall while random forest favors precision/accuracy 
 
 ![Attrition by department](visualizations/attrition_by_department.svg)
 
+![Attrition by tenure](visualizations/attrition_by_tenure.svg)
+
 ![Model ROC-AUC](visualizations/model_roc_auc.svg)
 
 ![Permutation importance](visualizations/permutation_importance.svg)
