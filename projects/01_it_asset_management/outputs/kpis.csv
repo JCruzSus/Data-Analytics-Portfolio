@@ -1,0 +1,8 @@
+metric,value
+total_work_orders,500
+completed_work_orders,370
+completion_rate_pct,74.0
+avg_turnaround_days_completed,6.51
+repeat_repair_rate_pct,7.6
+avg_labor_hours,1.87
+total_parts_cost,14186.0
