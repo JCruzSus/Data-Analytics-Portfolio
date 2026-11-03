@@ -1,0 +1,8 @@
+issue_category,work_orders,avg_labor_hours,avg_parts_cost,repeat_repair_pct
+Battery,80,1.89,29.14,3.8
+Other,76,1.83,29.03,10.5
+Keyboard,75,1.97,31.60,5.3
+Charging Port,74,1.88,28.15,12.2
+Connectivity,69,1.75,27.49,11.6
+Screen,65,1.92,25.34,6.2
+Operating System,61,1.84,27.08,3.3
