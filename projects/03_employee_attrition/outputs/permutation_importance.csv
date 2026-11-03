@@ -1,0 +1,11 @@
+feature,importance_mean,importance_std
+OverTime,0.187297,0.014217
+Age,0.014189,0.016379
+JobSatisfaction,0.012134,0.006975
+BusinessTravel,0.011280,0.004942
+Education,0.004533,0.001866
+TotalWorkingYears,0.003795,0.001991
+RelationshipSatisfaction,0.001128,0.003155
+JobInvolvement,0.001128,0.002902
+WorkLifeBalance,0.000538,0.002418
+MonthlyIncome,0.000506,0.015742
