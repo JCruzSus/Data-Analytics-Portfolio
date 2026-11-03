@@ -22,6 +22,12 @@ Which regions, product categories, and customer segments drive revenue and gross
 - Technology is the highest-profit category ($605,661.34).
 - Discount and profit are explored descriptively; this synthetic data does not establish a causal discount effect.
 
+## Visualizations
+
+![Gross profit by region](visualizations/profit_by_region.svg)
+
+![Gross profit by category](visualizations/profit_by_category.svg)
+
 ## Interactive dashboard
 The Streamlit app is in `app.py`. Run it locally:
 
